@@ -35,9 +35,6 @@
    A QEMU window will open showing the Debian installer.  
    *(For headless mode: `QEMU_NOGRAPHIC=1 BOOT_FROM_ISO=1 ./scripts/00-setup-vm.sh`)*
 
-   # Running the live ISO (-m 4G recommended for a smoother experience)
-   qemu-system-x86_64 -serial stdio -cdrom build/iso/artificial-linux-1.0-live.iso -boot d -m 4G
-
    **During Debian Installation:**
    - Select "Install" (text mode recommended)
    - Create a user (e.g., `lfsuser`)
