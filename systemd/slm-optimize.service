@@ -1,0 +1,18 @@
+[Unit]
+Description=Artificial Linux SLM first-boot native optimizer
+Documentation=https://github.com/artificial-linux
+After=network.target
+# Optional: run after SLM server is known to work with portable build
+After=slm-server.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/slm-optimize
+RemainAfterExit=yes
+# Run as root so we can write to /usr/local and /usr/src
+User=root
+Group=root
+
+[Install]
+# Not enabled by default; operator runs: systemctl enable --now slm-optimize.service
+WantedBy=multi-user.target

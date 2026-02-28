@@ -1,0 +1,4 @@
+DISTRIB_ID=Artificial Linux
+DISTRIB_RELEASE=1.0
+DISTRIB_CODENAME=Granite
+DISTRIB_DESCRIPTION="Artificial Linux 1.0 (Granite) - LFS with integrated SLM"

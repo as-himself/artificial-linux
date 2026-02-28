@@ -1,0 +1,9 @@
+NAME="Artificial Linux"
+VERSION="1.0"
+ID=artificial-linux
+ID_LIKE=lfs
+PRETTY_NAME="Artificial Linux 1.0 (Granite)"
+VERSION_ID="1.0"
+HOME_URL="https://github.com/as-himself/artificial-linux"
+BUG_REPORT_URL="https://github.com/as-himself/artificial-linux/issues"
+ANSI_COLOR="0;36"

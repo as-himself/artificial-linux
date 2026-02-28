@@ -1,0 +1,21 @@
+#!/bin/bash
+# Artificial Linux - make wrapper: on build failure, send last log lines to SLM for analysis
+
+LOG_FILE="${LFS_BUILD_LOG:-/tmp/lfs_build.log}"
+> "$LOG_FILE"
+
+# Run make, tee to log
+make "$@" 2>&1 | tee "$LOG_FILE"
+MAKE_EXIT=${PIPESTATUS[0]}
+
+if [[ $MAKE_EXIT -ne 0 ]]; then
+    echo -e "\033[33m[AI Analyzing Build Failure...]\033[0m"
+    ERROR_CONTEXT=$(tail -n 20 "$LOG_FILE")
+    if command -v ask &>/dev/null; then
+        ask "This build failed. Last 20 lines: $ERROR_CONTEXT. What is the most likely cause and how do I fix it?" 256
+    else
+        echo "$ERROR_CONTEXT"
+    fi
+fi
+
+exit "$MAKE_EXIT"

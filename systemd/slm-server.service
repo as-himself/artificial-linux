@@ -1,0 +1,19 @@
+[Unit]
+Description=Artificial Linux SLM Inference Server
+Documentation=https://github.com/artificial-linux
+After=network.target
+StartLimitIntervalSec=120
+StartLimitBurst=3
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/slm-launcher
+Restart=on-failure
+RestartSec=10
+User=llm-user
+Group=llm-user
+MemoryMax=4G
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=ai-fabric.target

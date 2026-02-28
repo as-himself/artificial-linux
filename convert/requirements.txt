@@ -1,0 +1,11 @@
+# Python dependencies for converting HuggingFace models (TinyLlama, Granite, etc.) -> GGUF
+# Run: pip install -r convert/requirements.txt
+# Note: numpy<2 required for compatibility with PyTorch and llama.cpp converter.
+
+numpy>=1.24.0,<2
+transformers>=4.36.0
+safetensors>=0.4.0
+# torch.uint64 used by llama.cpp converter requires PyTorch 2.2+
+torch>=2.2.0
+sentencepiece>=0.1.99
+accelerate>=0.25.0

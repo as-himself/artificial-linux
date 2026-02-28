@@ -1,0 +1,8 @@
+# Build output
+build/
+
+# Model files (GGUF etc.)
+model/
+
+# Release tarball
+artificial-linux.tar.gz

@@ -1,0 +1,8 @@
+[Unit]
+Description=Artificial Linux AI Fabric (SLM + eBPF + Guard)
+Documentation=https://github.com/artificial-linux
+Wants=slm-server.service slm-guard.service ebpf-monitor.service
+After=multi-user.target slm-server.service
+
+[Install]
+WantedBy=multi-user.target

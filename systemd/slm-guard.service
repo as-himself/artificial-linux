@@ -1,0 +1,17 @@
+[Unit]
+Description=Artificial Linux SLM Guard (log monitor and BPF LSM coordinator)
+Documentation=https://github.com/artificial-linux
+After=slm-server.service
+Wants=slm-server.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/slm-guard.sh
+Restart=on-failure
+RestartSec=10
+# Requires CAP_SYS_ADMIN for bpftool map update
+CapabilityBoundingSet=CAP_SYS_ADMIN
+AmbientCapabilities=CAP_SYS_ADMIN
+
+[Install]
+WantedBy=ai-fabric.target

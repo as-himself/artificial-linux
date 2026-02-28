@@ -1,0 +1,16 @@
+[Unit]
+Description=Artificial Linux eBPF Kernel Monitor
+Documentation=https://github.com/artificial-linux
+After=local-fs.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/local/lib/bpf
+ExecStart=/usr/local/bin/ebpf-monitor
+Restart=on-failure
+RestartSec=5
+# BPF loading requires CAP_BPF, CAP_PERFMON or root
+CapabilityBoundingSet=CAP_BPF CAP_PERFMON CAP_SYS_ADMIN
+
+[Install]
+WantedBy=ai-fabric.target
